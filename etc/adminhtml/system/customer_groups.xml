@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<include xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_include.xsd">
+    <label>
+        <![CDATA[Customer Groups]]>
+    </label>
+    <comment>
+        <![CDATA[Restricts this payment method to selected customer groups. If none are selected, the payment method is applicable to all customer groups.]]>
+    </comment>
+    <source_model>Smaex\CustomerGroupPayments\Model\Customer\Source\Group</source_model>
+</include>
