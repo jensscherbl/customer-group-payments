@@ -3,11 +3,10 @@
     "description": "Restricts payment methods to specific customer groups in Magento 2.",
     "type":        "magento2-module",
     "version":     "1.0.0",
-    "repositories": [
-        {
-            "type": "vcs",
-            "url":  "https://github.com/smaex/additional-payment-checks.git"
-        }
+    "license":     "MIT",
+    "keywords":
+    [
+        "magento", "payment", "customer group"
     ],
     "require":
     {

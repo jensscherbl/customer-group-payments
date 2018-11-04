@@ -6,17 +6,17 @@
     <type name="Magento\Payment\Model\Checks\SpecificationFactory">
         <arguments>
             <argument name="mapping" xsi:type="array">
-                <item name="canUseForCustomerGroup" xsi:type="object">
-                    <![CDATA[Smaex\CustomerGroupPayments\Model\Checks\CanUseForCustomerGroup]]>
+                <item name="smaex_can_use_for_customer_group" xsi:type="object">
+                    Smaex\CustomerGroupPayments\Model\Checks\CanUseForCustomerGroup
                 </item>
             </argument>
         </arguments>
     </type>
-    <type name="Smaex\AdditionalPaymentChecks\Plugin\Payment\Model\Checks\SpecificationFactory\AdditionalChecks">
+    <type name="Smaex\AdditionalPaymentChecks\Plugin\WhitelistAdditionalChecks">
         <arguments>
             <argument name="additionalChecks" xsi:type="array">
-                <item name="canUseForCustomerGroup" xsi:type="string">
-                    <![CDATA[canUseForCustomerGroup]]>
+                <item name="smaex_can_use_for_customer_group" xsi:type="string">
+                    smaex_can_use_for_customer_group
                 </item>
             </argument>
         </arguments>

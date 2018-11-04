@@ -44,7 +44,7 @@ class CanUseForCustomerGroup implements \Magento\Payment\Model\Checks\Specificat
                 ',',
                 $customerGroups
             );
-            if (in_array($customerGroup, $customerGroups) === false) {
+            if (in_array((string) $customerGroup, $customerGroups, true) === false) {
                 $isApplicable = false;
             }
         }

@@ -1,34 +1,45 @@
 <?php
 namespace Smaex\CustomerGroupPayments\Model\Customer\Source;
 
-use Magento\Framework\Exception\LocalizedException;
+use Magento\Customer\Api\Data\GroupInterface;
+use Magento\Customer\Model\Customer;
 
 /**
  * Extends Magento’s customer group source model,
  * omits option for “all customer groups”.
  */
-class Group extends \Magento\Customer\Model\Customer\Source\Group
+class Group implements \Magento\Customer\Model\Customer\Source\GroupSourceInterface
 {
     /**
-     * @inheritDoc
+     * @var Customer\Source\Group
+     */
+    private $origin;
+
+    /**
+     * Constructor.
      *
-     * @throws LocalizedException
+     * @param Customer\Source\Group $origin
+     *
+     * @codeCoverageIgnore
+     */
+    public function __construct(Customer\Source\Group $origin)
+    {
+        $this->origin = $origin;
+    }
+
+    /**
+     * @inheritDoc
      */
     public function toOptionArray()
     {
-        $customerGroups = [];
+        $options = $this->origin->toOptionArray();
 
-        if ($this->moduleManager->isEnabled('Magento_Customer')) {
-            $groups = $this->groupRepository->getList(
-                $this->searchCriteriaBuilder->create()
-            );
-            foreach ($groups->getItems() as $group) {
-                $customerGroups[] = [
-                    'label' => $group->getCode(),
-                    'value' => $group->getId()
-                ];
+        foreach ($options as $index => $option) {
+            if ((int) $option['value'] === GroupInterface::CUST_GROUP_ALL) {
+                unset($options[$index]);
+                break;
             }
         }
-        return $customerGroups;
+        return array_values($options);
     }
 }

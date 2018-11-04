@@ -18,21 +18,7 @@ Unfortunately, there’s currently a limitation in Magento’s code regarding th
 
 ## How to install
 
-Add the extension’s repositories to the `composer.json` in your project’s root directory.
-
-```json
-"repositories": [
-    {
-        "type": "vcs",
-        "url":  "https://github.com/smaex/additional-payment-checks.git"
-    },{
-        "type": "vcs",
-        "url":  "https://github.com/smaex/customer-group-payments.git"
-    }
-],
-```
-
-Then, simply require the extension via [Composer][6].
+Simply require the extension via [Composer][6].
 
 ```sh
 $ composer require smaex/customer-group-payments ^1.0
@@ -93,7 +79,7 @@ The next and already final step is then to provide your own `system.xml` under `
 
 ## Alternative
 
-If ~~you’re a lazy sloth~~ this looks like to much work (i.e., XML configuration), there’s also [another extension tackling the same problem from a very different angle][10].
+If ~~you’re a lazy sloth~~ this looks like too much work (i.e., XML configuration), there’s also [another extension tackling the same problem from a very different angle][10].
 
 ## We’re hiring!
 
