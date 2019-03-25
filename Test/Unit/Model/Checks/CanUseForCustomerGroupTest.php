@@ -1,7 +1,7 @@
 <?php
 namespace Smaex\CustomerGroupPayments\Test\Unit\Model\Checks;
 
-use Magento\Customer\Model\Session;
+use Magento\Customer\Api\Data\CustomerInterface;
 use Magento\Payment\Model\MethodInterface;
 use Magento\Quote\Model\Quote;
 use PHPUnit\Framework\MockObject\MockObject;
@@ -18,9 +18,9 @@ class CanUseForCustomerGroupTest extends \PHPUnit\Framework\TestCase
     private $instance;
 
     /**
-     * @var MockObject|Session
+     * @var MockObject|CustomerInterface
      */
-    private $mockCustomerSession;
+    private $mockCustomer;
 
     /**
      * @var MockObject|MethodInterface
@@ -43,7 +43,7 @@ class CanUseForCustomerGroupTest extends \PHPUnit\Framework\TestCase
      */
     public function testIsApplicable(int $customerGroup, $customerGroups, bool $isApplicable): void
     {
-        $this->mockCustomerSession->method('getCustomerGroupId')->willReturn(
+        $this->mockCustomer->method('getGroupId')->willReturn(
             $customerGroup
         );
         $this->mockPaymentMethod->method('getConfigData')->willReturn(
@@ -75,9 +75,13 @@ class CanUseForCustomerGroupTest extends \PHPUnit\Framework\TestCase
     {
         parent::setUp();
 
-        $this->mockCustomerSession = $this->createMock(Session::class);
-        $this->mockPaymentMethod   = $this->createMock(MethodInterface::class);
-        $this->mockQuote           = $this->createMock(Quote::class);
-        $this->instance            = new CanUseForCustomerGroup($this->mockCustomerSession);
+        $this->mockCustomer      = $this->createMock(CustomerInterface::class);
+        $this->mockPaymentMethod = $this->createMock(MethodInterface::class);
+        $this->mockQuote         = $this->createMock(Quote::class);
+        $this->instance          = new CanUseForCustomerGroup;
+
+        $this->mockQuote->method('getCustomer')->willReturn(
+            $this->mockCustomer
+        );
     }
 }

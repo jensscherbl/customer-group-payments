@@ -1,7 +1,6 @@
 <?php
 namespace Smaex\CustomerGroupPayments\Model\Checks;
 
-use Magento\Customer\Model\Session;
 use Magento\Payment\Model\MethodInterface;
 use Magento\Quote\Model\Quote;
 
@@ -14,32 +13,15 @@ class CanUseForCustomerGroup implements \Magento\Payment\Model\Checks\Specificat
     const CUSTOMER_GROUPS = 'customer_groups';
 
     /**
-     * @var Session
-     */
-    private $customerSession;
-
-    /**
-     * Constructor.
-     *
-     * @param Session $customerSession
-     *
-     * @codeCoverageIgnore
-     */
-    public function __construct(Session $customerSession)
-    {
-        $this->customerSession = $customerSession;
-    }
-
-    /**
      * @inheritDoc
      */
     public function isApplicable(MethodInterface $paymentMethod, Quote $quote)
     {
         $isApplicable   = true;
-        $customerGroup  = $this->customerSession->getCustomerGroupId();
         $customerGroups = $paymentMethod->getConfigData(self::CUSTOMER_GROUPS);
 
         if (is_string($customerGroups)) {
+            $customerGroup  = $quote->getCustomer()->getGroupId();
             $customerGroups = explode(
                 ',',
                 $customerGroups
