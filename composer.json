@@ -2,7 +2,7 @@
     "name":        "smaex/customer-group-payments",
     "description": "Restricts payment methods to specific customer groups in Magento 2.",
     "type":        "magento2-module",
-    "version":     "1.1.1",
+    "version":     "2.0.0",
     "license":     "MIT",
     "keywords":
     [
@@ -11,8 +11,8 @@
     "require":
     {
         "php":                             "^7.1",
-        "magento/framework":               "^101.0",
-        "magento/module-customer":         "^101.0",
+        "magento/framework":               "^102.0",
+        "magento/module-customer":         "^102.0",
         "magento/module-payment":          "^100.2",
         "magento/module-quote":            "^101.0",
         "smaex/additional-payment-checks": "^1.0"

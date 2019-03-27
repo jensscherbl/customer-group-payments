@@ -21,7 +21,7 @@ Unfortunately, there’s currently a limitation in Magento’s code regarding th
 Simply require the extension via [Composer][6].
 
 ```sh
-$ composer require smaex/customer-group-payments ^1.0
+$ composer require smaex/customer-group-payments ^2.0
 ```
 
 Finally, enable the module via [Magento’s CLI][7].
@@ -86,13 +86,13 @@ If ~~you’re a lazy sloth~~ this looks like too much work (i.e., XML configurat
 Wanna work for [one of Germany’s leading Magento partners][11]? With agile methods, small teams and big clients? We’re currently looking for experienced ~~masochists~~ **PHP & Magento developers in Munich**. Sounds interesting? Just drop me a line via j.scherbl@techdivision.com
 
  [1]: https://github.com/magento/magento2
- [2]: https://github.com/magento/magento2/blob/2.2/app/code/Magento/Payment/Model/Checks/SpecificationInterface.php
- [3]: https://github.com/magento/magento2/blob/2.2/app/code/Magento/Payment/Model/Checks/Composite.php
+ [2]: https://github.com/magento/magento2/blob/2.3/app/code/Magento/Payment/Model/Checks/SpecificationInterface.php
+ [3]: https://github.com/magento/magento2/blob/2.3/app/code/Magento/Payment/Model/Checks/Composite.php
  [4]: https://user-images.githubusercontent.com/1640033/47964356-25660200-e039-11e8-81dc-7ccc9785c2bc.png
  [5]: https://github.com/smaex/additional-payment-checks
  [6]: https://getcomposer.org
- [7]: https://devdocs.magento.com/guides/v2.2/install-gde/install/cli/install-cli-subcommands-enable.html
+ [7]: https://devdocs.magento.com/guides/v2.3/install-gde/install/cli/install-cli-subcommands-enable.html
  [8]: https://github.com/magento/magento2-samples/blob/master/sample-module-payment-gateway/etc/adminhtml/system.xml
- [9]: https://devdocs.magento.com/guides/v2.2/architecture/archi_perspectives/components/modules/mod_intro.html
+ [9]: https://devdocs.magento.com/guides/v2.3/architecture/archi_perspectives/components/modules/mod_intro.html
 [10]: https://github.com/galacticlabs/customer-group-payment-filters
 [11]: https://www.techdivision.com/karriere/offene-stellen/magento-developer-m-w.html
